@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import { LoginPage } from "./pages/Login/LoginPage";
 import { SignupPage } from "./pages/Signup/SignupPage";
+import { ModelEditorPage } from "./pages/ModelEditor/ModelEditorPage";
+
 
 const AppRoutes = () => {
   return (
@@ -14,6 +16,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/model-editor" element={<ModelEditorPage />} />
       </Routes>
     </Router>
   );

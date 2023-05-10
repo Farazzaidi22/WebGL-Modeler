@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SignupForm = () => {
   const [email, setEmail] = useState("");
@@ -25,7 +26,9 @@ const SignupForm = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Sign Up</button>
+        <Link to="/model-editor">
+          <button type="submit">Sign Up</button>
+        </Link>
       </form>
     </div>
   );

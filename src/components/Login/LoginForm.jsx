@@ -12,7 +12,7 @@ const LoginForm = () => {
 
   return (
     <div className="signin-screen">
-      <h2>Sign In</h2>
+      <h2>Login In</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -27,8 +27,8 @@ const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <Link to="/signup">
-          <button type="submit">Sign In</button>
+        <Link to="/model-editor">
+          <button type="submit">Login In</button>
         </Link>
       </form>
     </div>
