@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useLoader, useFrame } from "@react-three/fiber";
+import { useLoader, useFrame, useThree } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import * as THREE from "three"; // Add this import statement
+import * as THREE from "three";
 
 const GltfModel = ({
   modelPath,
@@ -22,19 +22,35 @@ const GltfModel = ({
     }
   }, [autoScale, scale]);
 
-  useFrame((state, delta) => (ref.current.rotation.y += 0.003));
+  //   useFrame((state, delta) => (ref.current.rotation.y += 0.3));
+
+  const { camera } = useThree();
+
+  // Adjust the camera position to ensure the entire model is visible
+  useEffect(() => {
+    const bbox = new THREE.Box3().setFromObject(ref.current);
+    const center = bbox.getCenter(new THREE.Vector3());
+    const size = bbox.getSize(new THREE.Vector3()).length();
+    const distance =
+      (size * 0.7) / Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2.2);
+    const direction = camera.position
+      .clone()
+      .sub(center)
+      .normalize()
+      .multiplyScalar(distance);
+    camera.position.copy(center).add(direction);
+    camera.lookAt(center);
+  }, [camera]);
 
   return (
-    <>
-      <primitive
-        ref={ref}
-        object={gltf.scene}
-        position={position}
-        scale={scale * 0.08}
-        // onPointerOver={() => hover(true)}
-        // onPointerOut={() => hover(false)}
-      />
-    </>
+    <primitive
+      ref={ref}
+      object={gltf.scene}
+      position={position}
+      scale={scale * 0.1}
+      //   onPointerOver={() => hover(true)}
+      //   onPointerOut={() => hover(false)}
+    />
   );
 };
 
