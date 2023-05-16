@@ -16,7 +16,9 @@ export const ModelEditorPage = () => {
     >
       <h3>Alert and confirmation</h3>
 
-      <h5>Person Name, Section Name. User Id and Micro controller id</h5>
+      <h5 style={{ padding: "2%" }}>
+        Person Name, Section Name. User Id and Micro controller id
+      </h5>
 
       <div
         style={{
