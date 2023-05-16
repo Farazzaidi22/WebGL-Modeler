@@ -42,9 +42,9 @@ export const ModelEditorPage = () => {
 
         <div
           style={{
-            height: "50vh",
             // border: "2px solid green",
 
+            height: "50vh",
             display: "flex",
             justifyContent: "center",
           }}
