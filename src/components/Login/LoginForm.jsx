@@ -50,7 +50,7 @@ const LoginForm = () => {
           }}
         />
         <Link
-          to="/forgot-password"
+          // to="/forgot-password"
           style={{
             marginBottom: "20px",
             textDecoration: "underline",
@@ -60,18 +60,21 @@ const LoginForm = () => {
         >
           Forgot Password?
         </Link>
-        <button
-          type="submit"
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#007bff",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-          }}
-        >
-          Log In
-        </button>
+
+        <Link to="/model-editor">
+          <button
+            type="submit"
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              border: "none",
+              borderRadius: "4px",
+            }}
+          >
+            Log In
+          </button>
+        </Link>
       </form>
 
       <div>
@@ -85,7 +88,7 @@ const LoginForm = () => {
           Don't have an account?{" "}
         </span>
         <Link
-          to="/forgot-password"
+          to="/signup"
           style={{
             marginBottom: "20px",
             textDecoration: "none",
