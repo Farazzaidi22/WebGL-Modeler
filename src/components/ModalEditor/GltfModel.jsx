@@ -11,7 +11,6 @@ const GltfModel = ({
 }) => {
   const ref = useRef();
   const gltf = useLoader(GLTFLoader, modelPath);
-  const [hovered, hover] = useState(false);
 
   useEffect(() => {
     if (autoScale && ref.current) {
@@ -32,7 +31,7 @@ const GltfModel = ({
     const center = bbox.getCenter(new THREE.Vector3());
     const size = bbox.getSize(new THREE.Vector3()).length();
     const distance =
-      (size * 0.7) / Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2.2);
+      (size * 0.8) / Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2.2);
     const direction = camera.position
       .clone()
       .sub(center)
