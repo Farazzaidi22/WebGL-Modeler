@@ -39,17 +39,17 @@ const ColorWheel = () => {
   const getIconByIndex = (index) => {
     switch (index) {
       case 0:
-        return <GiLadybug />;
+        return <GiLadybug color="white" />;
       case 1:
-        return <GiAlienStare />;
+        return <GiAlienStare color="white" />;
       case 2:
-        return <FaAnchor />;
+        return <FaAnchor color="white" />;
       case 3:
-        return <GiAngelWings />;
+        return <GiAngelWings color="white" />;
       case 4:
-        return <GiAnkh />;
+        return <GiAnkh color="white" />;
       case 5:
-        return <FaPiedPiperAlt />;
+        return <FaPiedPiperAlt color="white" />;
       default:
         return null;
     }

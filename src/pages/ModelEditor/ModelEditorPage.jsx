@@ -9,14 +9,62 @@ export const ModelEditorPage = () => {
   return (
     <div
       style={{
-        // border: "2px solid red",
-
         width: "100%",
       }}
     >
-      <h3>Alert and confirmation</h3>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center" /* Add this line */,
+          position: "fixed" /* Add this line */,
+          top: 0 /* Add this line */,
+          left: 0 /* Add this line */,
+          width: "100%" /* Add this line */,
+          padding: "5px" /* Adjust the padding value as needed */,
 
-      <h5 style={{ padding: "2%" }}>
+          // border: "2px solid red",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center" /* Add this line */,
+            width: "20%",
+          }}
+        >
+          <img
+            src="/logo/logo.jpg"
+            alt="Logo"
+            style={{
+              width: "100%",
+              height: "auto",
+            }} /* Adjust the image size as needed */
+          />
+        </div>
+        <h3
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center" /* Add this line */,
+            width: "80%",
+            margin: 0 /* Add this line to remove default margin */,
+          }}
+        >
+          Alert and confirmation
+        </h3>
+      </div>
+
+      <h5
+        style={{
+          padding: "2%",
+          textAlign: "left",
+          width: "50%",
+          marginTop: "8%",
+          // border: "1px solid red",
+        }}
+      >
         Person Name, Section Name. User Id and Micro controller id
       </h5>
 
@@ -37,7 +85,7 @@ export const ModelEditorPage = () => {
             justifyContent: "center",
           }}
         >
-          <BsBroadcast style={{ marginBottom: "300px" }} />
+          <BsBroadcast style={{ marginBottom: "300px" }} color="white" />
         </div>
 
         <div
@@ -65,9 +113,12 @@ export const ModelEditorPage = () => {
             justifyContent: "space-evenly",
           }}
         >
-          <FaBatteryQuarter />
+          <FaBatteryQuarter color="white" />
 
-          <FaRegArrowAltCircleRight style={{ marginBottom: "200px" }} />
+          <FaRegArrowAltCircleRight
+            style={{ marginBottom: "200px" }}
+            color="white"
+          />
         </div>
       </div>
 
