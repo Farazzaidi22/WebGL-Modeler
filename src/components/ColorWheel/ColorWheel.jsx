@@ -5,8 +5,25 @@ import { GiAlienStare, GiAnkh, GiAngelWings, GiLadybug } from "react-icons/gi";
 
 import Wheel from "@uiw/react-color-wheel";
 
+import ColorPicker from "@radial-color-picker/react-color-picker";
+import "@radial-color-picker/react-color-picker/dist/react-color-picker.min.css";
+
 const ColorWheel = () => {
-  const [hsva, setHsva] = React.useState({ h: 0, s: 0, v: 68, a: 1 });
+  const [color, setColor] = React.useState({
+    hue: 90,
+    saturation: 100,
+    luminosity: 50,
+    alpha: 1,
+  });
+
+  const onInput = (hue) => {
+    setColor((prev) => {
+      return {
+        ...prev,
+        hue,
+      };
+    });
+  };
 
   const iconPositions = [
     { top: "100%", transform: "translate(40%, -250%)" },
@@ -57,11 +74,9 @@ const ColorWheel = () => {
 
   return (
     <div style={styles.colorWheelContainer}>
-      <Wheel
-        color={hsva}
-        onChange={(color) => {
-          setHsva({ ...hsva, ...color.hsva });
-        }}
+      <ColorPicker
+        {...color}
+        onInput={onInput}
         style={{ width: "160px", height: "160px", marginBottom: "10%" }}
       />
       {renderIcons()}
