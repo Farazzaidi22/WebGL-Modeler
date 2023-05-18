@@ -8,6 +8,8 @@ import Wheel from "@uiw/react-color-wheel";
 import ColorPicker from "@radial-color-picker/react-color-picker";
 import "@radial-color-picker/react-color-picker/dist/react-color-picker.min.css";
 
+import "./ColorPicker.css";
+
 const ColorWheel = () => {
   const [color, setColor] = React.useState({
     hue: 90,
@@ -15,6 +17,8 @@ const ColorWheel = () => {
     luminosity: 50,
     alpha: 1,
   });
+
+  const [selectedIconIndex, setSelectedIconIndex] = React.useState(null);
 
   const onInput = (hue) => {
     setColor((prev) => {
@@ -44,7 +48,9 @@ const ColorWheel = () => {
               ...styles.icon,
               top: position.top,
               transform: position.transform,
+              border: index === selectedIconIndex ? "2px solid white" : "none", // Apply white circle style to selected icon
             }}
+            onClick={() => setSelectedIconIndex(index)} // Set the selected icon index on click
           >
             {getIconByIndex(index)}
           </div>
@@ -75,9 +81,16 @@ const ColorWheel = () => {
   return (
     <div style={styles.colorWheelContainer}>
       <ColorPicker
+        // Other props...
         {...color}
         onInput={onInput}
-        style={{ width: "160px", height: "160px", marginBottom: "10%" }}
+        style={{
+          width: "160px",
+          height: "160px",
+          marginBottom: "10%",
+        }}
+        className="custom-color-picker"
+        renderWell={() => <GiAlienStare />}
       />
       {renderIcons()}
     </div>
